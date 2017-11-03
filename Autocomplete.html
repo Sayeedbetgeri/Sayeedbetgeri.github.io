@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<style>
+#searchResult{
+ list-style: none;
+ padding: 0px;
+ width: 250px;
+ position: absolute;
+ margin: 0;
+ border: 1px solid grey;
+}
+
+#searchResult li{
+ background: white;
+ padding: 4px;
+ #margin-bottom: 1px;
+}
+
+
+#searchResult li:nth-child(even){
+ background: lightgrey;
+ color: white;
+}
+
+#searchResult li:hover{
+ cursor: pointer;
+ background: aliceblue;
+ color:Black;
+}
+.selected {
+   background: aliceblue;
+	 color: green;
+	 font-weight:bold;
+}
+
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+<body>
+
+<div ng-app="myApp" ng-controller="fetchCtrl">
+ 
+  <input type='text' ng-click="openModals()" ng-keydown="selectLi($event)" ng-keyup='fetchUsers()' ng-model='searchText' ng-focus="openModal()" ng-blur="closeModal()" style="width:240px;padding:5px;"><br>
+  <ul id='searchResult' >
+   <li ng-click='setValue(result)' ng-repeat="result in searchResult | filter:searchText" ng-class="{'selected':keypos==result.id}" >{{ result.name }}</li>
+  </ul>
+ <br />
+ <span > Selected : {{searchText}}</span>
+ </div>
+
+<script>
+var fetch = angular.module('myApp', []);
+
+fetch.controller('fetchCtrl', ['$scope', '$http', function ($scope, $http) {
+// $scope.modelValues=[{name:'1',name2:''}]
+ // Fetch data
+ $scope.keypos=1;
+ $scope.fetchUsers = function(){
+ 
+  
+   $scope.searchResult = [
+        {id:1,name:'Jani'},
+        {id:2,name:'Carl'},
+        {id:3,name:'Margareth'},
+        {id:4,name:'Hege'},
+        {id:5,name:'Joe'},
+        {id:6,name:'Gustav'},
+        {id:7,name:'Birgit'},
+        {id:8,name:'Mary'},
+        {id:9,name:'Kai'}
+    ];
+ }
+ /*$scope.fetchUsers2 = function(){
+ 
+  
+   $scope.searchResult = [
+        {id:1,name:'Jani'},
+        {id:2,name:'Carl'},
+        {id:3,name:'Margareth'},
+        {id:4,name:'Hege'},
+        {id:5,name:'Joe'},
+        {id:6,name:'Gustav'},
+        {id:7,name:'Birgit'},
+        {id:8,name:'Mary'},
+        {id:9,name:'Kai'}
+    ];
+ } */
+
+ $scope.selectLi=function(e){
+  var key = e.keyCode
+	//$scope.searchResult[keypos].
+	if($scope.searchText=="" && key != 40  && key !=38 && key!=13)
+	{
+	$scope.keypos=1;
+	}
+	$scope.openModal();
+
+	if($scope.keypos<$scope.searchResult.length){
+//	console.log($scope.searchResult.length);
+	//	console.log($scope.keypos)
+	  if ( key == 40 ) // Down key
+    {
+	$scope.keypos++;
+	}
+	}
+	if($scope.keypos>1  ){
+	 if ( key == 38 )
+	{
+	$scope.keypos--;
+	}
+	}
+	if ( key == 13 )
+	{
+	 $scope.searchText=$scope.searchResult[$scope.keypos-1].name;
+	  $("#searchResult").hide();
+	 //  $scope.keypos=1;
+	}
+	//	console.log($scope.keypos)
+	
+ }
+ $scope.selectdownLi=function(){
+ 
+	//$scope.searchResult[keypos].
+	//$scope.keypos--;
+	console.log($scope.keypos)
+	
+ }
+ // Set value to search box
+ $scope.setValue = function(result){
+ // alert(result.id)
+  $scope.searchText=result.name;
+//  $scope.modelValues[0].name=result.name;
+  $("#searchResult").hide();
+ //  $scope.keypos=1;
+ }
+ /*$scope.setValue2= function(result){
+  alert(result.id)
+  $scope.modelValues[0].name2=result.name;
+  $("#searchResult").hide();
+  // $scope.keypos=1;
+ } */
+ $scope.openModal = function(){
+	$("#searchResult").show();
+ }
+ 
+  $scope.openModals = function(){
+	$scope.fetchUsers();
+	$("#searchResult").show();
+ }
+ 
+ $scope.closeModal = function(){
+ setTimeout(function(){
+	$("#searchResult").hide();
+//	 $scope.keypos=1;
+	},200);
+ }
+}]);
+</script>
+
+<p>The list will only consists of names matching the filter.</p>
+
+
+</body>
+</html>
