@@ -209,8 +209,8 @@ $(function(){
 						
 					</div>
 				</div><!-- /page-left -->
-				<a href="#" class="back back-right" title="back to intro" onclick='changeWidth()' style="box-sizing: border-box;"> BACK &rarr; </a>
-				<a href="#" class="back back-left" title="back to intro" onclick='changeWidth()' style="box-sizing: border-box;">  BACK  &larr;</a>
+				<a href="#" class="back back-right backclick" title="back to intro" onclick='changeWidth()' style="box-sizing: border-box;"> BACK &rarr; </a>
+				<a href="#" class="back back-left backclick" title="back to intro" onclick='changeWidth()' style="box-sizing: border-box;">  BACK  &larr;</a>
 			</div><!-- /splitlayout -->
 		</div><!-- /container -->
 
@@ -245,15 +245,15 @@ $(function(){
 <script type="text/javascript">
 $(document).ready(function(){
    $('img').bind("contextmenu",function(e){ return false; }); 
-function changeWidth()
-{
-
-	$(".side").css("width","100%");
-
-}
+   
 $('.intro-content').click(function(){
 $(".side").css("width","50%");
 
+});
+$('.backclick').on('click touchstart',function(){
+$(".side").css("width","100%");
+
+});
 });
 });
 $('img').bind("contextmenu",function(e){ return false; }); 
@@ -267,7 +267,11 @@ $('.intro-content').click(function(){
 $(".side").css("width","50%");
 
 });
+$('.backclick').on('click touchstart',function(){
+$(".side").css("width","100%");
 
+});
+});
 
 var modal = document.getElementById('myModal');
 
