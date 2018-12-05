@@ -1847,6 +1847,7 @@ span.swirl-right {
 	.flip-clock-divider .flip-clock-label {
 	    bottom: 0.2em;
 	    right: -86px;
+		color:white;
 	}
 	.flip-clock-wrapper ul li a div.up:after {
     	top: 18px;
@@ -2273,4 +2274,9 @@ img.hover-shadow {
 
 .hover-shadow:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.flip-clock-label{
+	
+	color: white;
 }
