@@ -766,7 +766,7 @@ var FlipClock;
 						t.factory.stop();
 					}
 					
-					t.factory.time.time--;	
+					t.factory.time.time++;	
 				}
 			}
 			
