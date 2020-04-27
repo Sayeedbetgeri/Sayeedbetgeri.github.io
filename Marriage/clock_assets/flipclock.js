@@ -428,8 +428,8 @@ var FlipClock;
 			this.running  = false;
 			this.base(options);		
 			this.$wrapper = $(obj).addClass(this.classes.wrapper);
-			this.time     = new FlipClock.Time(this, options); //digit ? Math.round(digit) : 0);
-			this.timer    = new FlipClock.Timer(this, digit ? Math.round(digit) : 0); //options);
+			this.time     = new FlipClock.Time(this, digit ? Math.round(digit) : 0);
+			this.timer    = new FlipClock.Timer(this, options);
 
 			this.lang     = this.loadLanguage(this.language);
 			this.face     = this.loadClockFace(this.clockFace, options);
