@@ -26,26 +26,7 @@
       width: 500px;
     }
   </style>
-    $(document).ready(function() {
-$('.flipTimer').flipTimer({ 
-
-// count up or countdown
-direction: 'down', 
-
-// the target date
-date: 'December 29, 2018 12:49:30', 
-
-// callback works only with direction = "up"
-callback: function() { alert('times up!'); }
-
-// custom date
-seconds: false,
-minutes: false,
-hours: false,
-days: false,
-
-});
-});
+ 
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="js/jquery.flipTimer.js"></script>
@@ -302,7 +283,20 @@ $(function(){
 		<!-- For the demo ad only -->   
 <!--script src="js/demoad.js"></script-->
 <script type="text/javascript">
+$(document).ready(function() {
+$('.flipTimer').flipTimer({ 
 
+// count up or countdown
+direction: 'down', 
+
+// the target <a href="https://www.jqueryscript.net/time-clock/">date</a>
+date: 'January 20, 2015 08:30:30', 
+
+// callback works only with direction = "down"
+callback: function() { alert('times up!'); }
+
+});
+});
 $('img').bind("contextmenu",function(e){ return false; }); 
 function changeWidth()
 {
