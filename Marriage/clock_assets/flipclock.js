@@ -1652,7 +1652,7 @@ var FlipClock;
 
 			factory.decrement = function() {
 				factory.countdown = true;
-				factory.setTime(factory.getTime().time + 1);
+				factory.setTime(factory.getTime().time - 1);
 			};
 
 			factory.setValue = function(digits) {
