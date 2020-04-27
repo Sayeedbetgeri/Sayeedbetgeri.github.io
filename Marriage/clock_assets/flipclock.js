@@ -1646,12 +1646,12 @@ var FlipClock;
 			factory.running  	   = true;
 
 			factory.increment = function() {
-				factory.countdown = true;//false;
+				factory.countdown = false;
 				factory.setTime(factory.getTime().time + 1);
 			};
 
 			factory.decrement = function() {
-				factory.countdown = false;//true;
+				factory.countdown = true;
 				factory.setTime(factory.getTime().time - 1);
 			};
 
