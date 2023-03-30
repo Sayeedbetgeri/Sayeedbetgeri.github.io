@@ -123,7 +123,7 @@ $(function(){
 							</nav>
 						</header>
 						<div class="intro-content">
-							<h1>WE ARE GETTING MARRIED</h1>
+							<h1>WE ARE MARRIED</h1>
 							<div class="profile"><img src="logo.png" alt="profile1"></div>
 							<h1 style="font-size:50px">Sayeed & Ayesha</h1>
 							<div class="countdown-title">
@@ -155,7 +155,7 @@ $(function(){
 							<div class="title-date">
 				<span class="swirl-left"><span class="swirl-right" style="    font-size: 40px;">29<span>.</span>12<span>.</span>2018</span></span>
 			</div>
-			<h2> SAVE THE DATE </h2>
+		<!--	<h2> SAVE THE DATE </h2> -->
 			<i class="icon ico-l-sm icon-l-arrows-slim-down-dashed animated fadeInDown"></i>
 			<h3 class="btn btn-border-white show-info animated fadeInUp"> More Info </h3> 
 						</div>
@@ -332,6 +332,20 @@ $(function(){
 <!--script src="js/demoad.js"></script-->
 <script type="text/javascript">
 $(document).ready(function() {
+   var audio = new Audio('song.mp3');
+
+		// add an event listener for when the audio ends
+		audio.addEventListener('ended', function() {
+		    console.log('Audio ended');
+		});
+
+		// add an event listener for when an error occurs
+		audio.addEventListener('error', function() {
+		    console.log('Error occurred');
+		});
+
+// play the audio
+audio.play();
 $('.flipTimer').flipTimer({ 
 
 // count up or countdown
@@ -462,6 +476,6 @@ var deadline = new Date(Date.parse(new Date("Dec 29, 2018 12:45:00")) + 1 * 24 *
 initializeClock('clockdiv', deadline);
 </script>
 
-<iframe src="song.mp3" allow="autoplay" id="audio" style="display:none;"></iframe>
+<!-- <iframe src="song.mp3" allow="autoplay" id="audio" style="display:none;"></iframe> -->
 	</body>
 </html>
